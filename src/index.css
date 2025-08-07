@@ -239,3 +239,32 @@ a:hover {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
   }
 }
+
+.dice-rolling-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8em;
+  color: #d4af37;
+  text-align: center;
+  margin-top: 20px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.dice-subtitle {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.2em;
+  color: #e8dcc0;
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+}
