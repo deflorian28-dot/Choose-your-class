@@ -19,7 +19,6 @@ type DecisionTree = {
 };
 
 const decisionTree: DecisionTree = {
-  // ... (your existing decisionTree data) ...
   start: {
     text: "Vorresti che il tuo personaggio lanciasse incantesimi, combattesse senza incantesimi o un mix delle due?",
     options: {
@@ -169,14 +168,14 @@ const decisionTree: DecisionTree = {
     },
   },
   "19": {
-    text: "Il tuo personaggio vuole fare un po’ tutto o ha interessi specifici?",
+    text: "Il tuo personaggio vuole fare un po' tutto o ha interessi specifici?",
     options: {
-      end20: "Un po’ tutto",
+      end20: "Un po' tutto",
       "34": "Interessi specifici",
     },
   },
   "34": {
-    text: "Al tuo personaggio interessa maggiormente l’arte, la scienza o il combattimento?",
+    text: "Al tuo personaggio interessa maggiormente l'arte, la scienza o il combattimento?",
     options: {
       end21: "Arte",
       end22: "Scienza",
@@ -225,7 +224,7 @@ const decisionTree: DecisionTree = {
   end16: { text: "Barbaro", description: "Combattente brutale che entra in furia per aumentare la propria forza." },
   end17: { text: "Ladro", description: "Abile in sotterfugi, trappole e attacchi precisi, sfrutta la sorpresa per sconfiggere i nemici." },
   end18: { text: "Monaco", description: "Maestro delle arti marziali, combatte a mani nude con velocità e disciplina." },
-  end19: { text: "Totemist", description: "Usa l’essenza delle creature magiche per ottenere poteri mistici e trasformare il suo corpo." },
+  end19: { text: "Totemist", description: "Usa l'essenza delle creature magiche per ottenere poteri mistici e trasformare il suo corpo." },
   end20: { text: "Factotum", description: "Versatile tuttofare, capace di usare abilità, incantesimi e trucchi." },
   end21: { text: "Bardo", description: "Incantatore e artista, supporta il gruppo con musica e magia." },
   end22: { text: "Artefice", description: "Esperto di oggetti magici e tecnologia arcana, crea e modifica strumenti, armi e armature." },
@@ -234,11 +233,11 @@ const decisionTree: DecisionTree = {
   end25: { text: "Shugenja", description: "Incantatore divino naturale, legato agli elementi e al loro potere." },
   end26: { text: "Druido", description: "Protettore della natura, può trasformarsi in animali e lanciare incantesimi naturali." },
   end27: { text: "Paladino", description: "Guerriero sacro, incarna giustizia e bontà con i suoi poteri divini." },
-  end28: { text: "Duskblade", description: "Combina incantesimi arcani e attacchi fisici in un’unica forma di combattimento." },
+  end28: { text: "Duskblade", description: "Combina incantesimi arcani e attacchi fisici in un'unica forma di combattimento." },
   end29: { text: "Guerriero psionico", description: "Usa la forza della sua mente per potenziare i propri attacchi fisici e dominare i suoi avversari." },
 };
 
-const buttonStyle = {
+const buttonStyle: React.CSSProperties = {
   fontSize: "1em",
   padding: "8px 16px",
   margin: "4px",
@@ -249,7 +248,7 @@ const buttonStyle = {
   cursor: "pointer",
 };
 
-const goBackButtonStyle = {
+const goBackButtonStyle: React.CSSProperties = {
   fontSize: "0.8em",
   padding: "6px 12px",
   margin: "8px",
@@ -259,7 +258,7 @@ const goBackButtonStyle = {
   cursor: "pointer",
 };
 
-const appContainerStyle = {
+const appContainerStyle: React.CSSProperties = {
   backgroundColor: '#1a237e', // Dark Blue
   minHeight: '100vh', // Ensure full height
   display: 'flex',
@@ -399,7 +398,7 @@ export default function App() {
               maxWidth: 650,
               margin: "40px auto",
               padding: 48,
-              textAlign: "center",
+              textAlign: "center" as const,
             }}
           >
             <h1 style={{ fontSize: "3.5em", marginBottom: 32 }}>
@@ -432,13 +431,13 @@ export default function App() {
                 maxWidth: 650,
                 margin: "40px auto",
                 padding: 32,
-                textAlign: "center",
+                textAlign: "center" as const,
               }}
             >
               <h2 style={{ marginBottom: 24, fontSize: "1.6em" }}>
                 {node.text}
               </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div style={{ display: "flex", flexDirection: "column" as const, gap: 16 }}>
                 {Object.entries(node.options).map(([nextId, optionText]) => (
                   <button
                     key={nextId}
@@ -468,7 +467,7 @@ export default function App() {
                 maxWidth: 650,
                 margin: "40px auto",
                 padding: 32,
-                textAlign: "center",
+                textAlign: "center" as const,
               }}
             >
               <div style={{ fontSize: 48, marginBottom: 16 }}>⚔️</div>
