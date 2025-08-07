@@ -259,6 +259,18 @@ const goBackButtonStyle = {
   cursor: "pointer",
 };
 
+const appContainerStyle = {
+  backgroundColor: '#1a237e', // Dark Blue
+  minHeight: '100vh', // Ensure full height
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'flex-start', // Align content to the top
+  paddingTop: '20px', // Add some padding at the top
+  color: 'white', // Set default text color to white for better contrast
+  fontFamily: 'sans-serif', // A basic font
+};
+
 export default function App() {
   const [currentNode, setCurrentNode] = useState<NodeID>("start");
   const [showStartScreen, setShowStartScreen] = useState(true);
@@ -377,111 +389,114 @@ export default function App() {
     setHistory([...history, nextId]);
   };
 
-  if (showStartScreen) {
-    return (
-      <div
-        className="fantasy-container"
-        style={{
-          maxWidth: 650,
-          margin: "40px auto",
-          padding: 48,
-          textAlign: "center",
-        }}
-      >
-        <h1 style={{ fontSize: "3.5em", marginBottom: 32 }}>
-          Trova la tua classe
-        </h1>
-        <p style={{ fontSize: "1.3em", marginBottom: 32, lineHeight: 1.6 }}>
-          Scopri quale classe di Dungeons & Dragons si adatta meglio al tuo stile di gioco
-        </p>
-        <button
-          onClick={() => {
-            setShowStartScreen(false);
-            if (musicSound && !musicPlaying) {
-              musicSound.play(); // Start music when starting the game
-              setMusicPlaying(true);
-            }
-          }}
-          style={buttonStyle}
-        >
-          Inizia l'Avventura
-        </button>
-      </div>
-    );
-  }
-
-  console.log("Current Node:", currentNode);
-
-  if (!node) {
-    return (
-      <div style={{ padding: 20 }}>
-        <p>Errore: nodo non trovato</p>
-        <button onClick={restart} style={buttonStyle}>Ricomincia</button>
-      </div>
-    );
-  }
-
-  if (!node.options) {
-    console.log("Rendering result screen");
-
-    return (
-      <div
-        className="result-container"
-        style={{
-          maxWidth: 650,
-          margin: "40px auto",
-          padding: 32,
-          textAlign: "center",
-        }}
-      >
-        <div style={{ fontSize: 48, marginBottom: 16 }}>⚔️</div>
-        <h2 className="result-title">La tua classe: {node.text}</h2>
-        {"description" in node && (
-          <p className="result-description">
-            {node.description}
-          </p>
-        )}
-        <button
-          className="restart-button"
-          onClick={restartFromBeginning}
-          style={buttonStyle}
-        >
-          Ricomincia l'Avventura
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div
-      className="fantasy-container"
-      style={{
-        maxWidth: 650,
-        margin: "40px auto",
-        padding: 32,
-        textAlign: "center",
-      }}
-    >
-      <h2 style={{ marginBottom: 24, fontSize: "1.6em" }}>{node.text}</h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-        {Object.entries(node.options).map(([nextId, optionText]) => (
-          <button
-            key={nextId}
-            onClick={() => handleOptionClick(nextId)}
-            style={buttonStyle}
+    <div style={appContainerStyle}>
+      {showStartScreen ? (
+        <>
+          <div
+            className="fantasy-container"
+            style={{
+              maxWidth: 650,
+              margin: "40px auto",
+              padding: 48,
+              textAlign: "center",
+            }}
           >
-            {optionText}
-          </button>
-        ))}
-      </div>
-      {history.length > 1 && (
-        <button
-          onClick={goToPreviousNode}
-          className="go-back-button"
-          style={goBackButtonStyle}
-        >
-          Go Back
-        </button>
+            <h1 style={{ fontSize: "3.5em", marginBottom: 32 }}>
+              Trova la tua classe
+            </h1>
+            <p style={{ fontSize: "1.3em", marginBottom: 32, lineHeight: 1.6 }}>
+              Scopri quale classe de Dungeons & Dragons si adatta meglio al tuo
+              stile di gioco
+            </p>
+            <button
+              onClick={() => {
+                setShowStartScreen(false);
+                if (musicSound && !musicPlaying) {
+                  musicSound.play();
+                  setMusicPlaying(true);
+                }
+              }}
+              style={buttonStyle}
+            >
+              Inizia l'Avventura
+            </button>
+          </div>
+        </>
+      ) : node ? (
+        node.options ? (
+          <>
+            <div
+              className="fantasy-container"
+              style={{
+                maxWidth: 650,
+                margin: "40px auto",
+                padding: 32,
+                textAlign: "center",
+              }}
+            >
+              <h2 style={{ marginBottom: 24, fontSize: "1.6em" }}>
+                {node.text}
+              </h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {Object.entries(node.options).map(([nextId, optionText]) => (
+                  <button
+                    key={nextId}
+                    onClick={() => handleOptionClick(nextId)}
+                    style={buttonStyle}
+                  >
+                    {optionText}
+                  </button>
+                ))}
+              </div>
+              {history.length > 1 && (
+                <button
+                  onClick={goToPreviousNode}
+                  className="go-back-button"
+                  style={goBackButtonStyle}
+                >
+                  Go Back
+                </button>
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              className="result-container"
+              style={{
+                maxWidth: 650,
+                margin: "40px auto",
+                padding: 32,
+                textAlign: "center",
+              }}
+            >
+              <div style={{ fontSize: 48, marginBottom: 16 }}>⚔️</div>
+              <h2 className="result-title">La tua classe: {node.text}</h2>
+              {"description" in node && (
+                <p className="result-description">
+                  {node.description}
+                </p>
+              )}
+              <button
+                className="restart-button"
+                onClick={restartFromBeginning}
+                style={buttonStyle}
+              >
+                Ricomincia l'Avventura
+              </button>
+            </div>
+          </>
+        )
+      ) : (
+        <>
+          <div style={{ padding: 20 }}>
+            <p>Errore: nodo non trovato</p>
+            <button onClick={restart} style={buttonStyle}>
+              Ricomincia
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
