@@ -499,7 +499,7 @@ export default function App() {
                   className="go-back-button"
                   style={goBackButtonStyle}
                 >
-                  Go Back
+                  Torna indietro
                 </button>
               )}
             </div>
