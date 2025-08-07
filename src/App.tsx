@@ -259,15 +259,20 @@ const goBackButtonStyle: React.CSSProperties = {
 };
 
 const appContainerStyle: React.CSSProperties = {
-  backgroundColor: '#1a237e', // Dark Blue
-  minHeight: '100vh', // Ensure full height
+  backgroundColor: 'transparent', // Let the body background show through
+  backgroundImage: 'none',
+  minHeight: '100vh',
+  width: '100vw',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'flex-start', // Align content to the top
-  paddingTop: '20px', // Add some padding at the top
-  color: 'white', // Set default text color to white for better contrast
-  fontFamily: 'sans-serif', // A basic font
+  justifyContent: 'flex-start',
+  paddingTop: '20px',
+  color: '#e8dcc0', // Match your fantasy theme colors
+  fontFamily: "'Crimson Text', serif", // Match your fantasy fonts
+  margin: 0,
+  padding: '20px 20px 0 20px',
+  boxSizing: 'border-box',
 };
 
 export default function App() {

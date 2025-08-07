@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: 'Crimson Text', serif;
   line-height: 1.6;
@@ -7,7 +16,7 @@
 
   color-scheme: dark;
   color: #e8dcc0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,15 +24,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+}
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: 
-    linear-gradient(rgba(26, 26, 46, 0.85), rgba(15, 52, 96, 0.85)),
-    url('https://images.pexels.com/photos/1074131/pexels-photo-1074131.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover no-repeat fixed;
+  width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
   position: relative;
 }
 
@@ -206,4 +222,20 @@ a:hover {
 .restart-button:hover {
   background: linear-gradient(145deg, #a0522d, #b8651f);
   border-color: #ffce54;
+}
+
+/* Ensure consistent background across all screen sizes and themes */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #e8dcc0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  }
+  
+  html {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  }
 }
