@@ -25,7 +25,7 @@ const decisionTree: DecisionTree = {
     options: {
       "1": "Lancia incantesimi",
       "2": "Combatte senza incantesimi",
-      "3": "Mix dei due",
+      "3": "Un mix dei due",
     },
   },
   // Path 1 - Magic
@@ -54,7 +54,7 @@ const decisionTree: DecisionTree = {
     text: "Il tuo personaggio preferisce essere il più versatile possibile o concentrarsi sugli incantesimi più potenti?",
     options: {
       end3: "Versatile",
-      end4: "Incantesimi potenti",
+      end4: "Incantesimi più potenti",
     },
   },
   "5": {
@@ -81,7 +81,7 @@ const decisionTree: DecisionTree = {
 
   // Path 2 - No Magic
   "2": {
-    text: "Che tipo di armi utilizza il tuo personaggio? A lungo raggio, combattimento ravvicinato o preferisce non usare armi?",
+    text: "Che tipo di armi utilizza il tuo personaggio? A lungo raggio? Combattimento ravvicinato? O preferisce non usare armi?",
     options: {
       "8": "Lungo raggio",
       "9": "Combattimento ravvicinato",
@@ -111,42 +111,42 @@ const decisionTree: DecisionTree = {
     },
   },
   "29": {
-    text: "Il tuo personaggio usa tecniche e strategie o abilità e forza?",
+    text: "Il tuo personaggio usa prevalentemente tecniche e strategie o la sua abilità e forza?",
     options: {
       "44": "Strategie",
       end15: "Abilità e forza",
     },
   },
   "44": {
-    text: "Usa le sue capacità per battere l'avversario o per guidare il gruppo?",
+    text: "Il tuo personaggio usa le sue capacità per battere l'avversario o per guidare il gruppo?",
     options: {
       end13: "Battere l'avversario",
       end14: "Guidare il gruppo",
     },
   },
   "9": {
-    text: "Il tuo personaggio combatte in modo normale o con trucchi sporchi/brutali?",
+    text: "Il tuo personaggio combatte in modo normale o anche con trucchi sporchi o brutali?",
     options: {
-      "13": "Normale",
-      "14": "Trucchi sporchi",
+      "13": "Soprattutto normale",
+      "14": "Non si trattiene dall'usare ogni mezzo",
     },
   },
   "13": {
-    text: "Tante opzioni o specializzazione?",
+    text: "Il tuo personaggio, in combattimento, preferisce avere tante opzioni o specializzarsi?",
     options: {
       "30": "Tante opzioni",
       "29": "Specializzarsi",
     },
   },
   "14": {
-    text: "Combattimento con forza bruta o sottile e preciso?",
+    text: "Il tuo personaggio combattime con forza bruta o in modo più sottile e preciso?",
     options: {
       end16: "Forza bruta",
       end17: "Sottile e preciso",
     },
   },
   "10": {
-    text: "Usa arti marziali o mezzi ferali?",
+    text: "Il tuo personaggio usa arti marziali o mezzi ferali?",
     options: {
       end18: "Arti marziali",
       end19: "Mezzi ferali",
@@ -155,28 +155,28 @@ const decisionTree: DecisionTree = {
 
   // Path 3 - Mix
   "3": {
-    text: "Il tuo personaggio combatte più con la magia o in altri modi?",
+    text: "Il tuo personaggio combatte più con la magia o più in altri modi?",
     options: {
       "17": "Magia",
       "18": "Altri modi",
     },
   },
   "17": {
-    text: "Più vicino alla vita di città o alla natura?",
+    text: "Il tuo personaggio si sente più vicino alla vita di città o alla natura?",
     options: {
       "19": "Città",
       "20": "Natura",
     },
   },
   "19": {
-    text: "Fa un po’ tutto o ha interessi specifici?",
+    text: "Il tuo personaggio vuole fare un po’ tutto o ha interessi specifici?",
     options: {
       end20: "Un po’ tutto",
       "34": "Interessi specifici",
     },
   },
   "34": {
-    text: "Gli piace più l’arte, la scienza o il combattimento?",
+    text: "Al tuo personaggio interessa maggiormente l’arte, la scienza o il combattimento?",
     options: {
       end21: "Arte",
       end22: "Scienza",
@@ -184,21 +184,21 @@ const decisionTree: DecisionTree = {
     },
   },
   "39": {
-    text: "Combattimento diretto o con sotterfugi?",
+    text: "Il tuo personaggio sceglie maggiormente il combattimento diretto o tramite sotterfugi?",
     options: {
       end23: "Diretto",
       end24: "Sotterfugi",
     },
   },
   "20": {
-    text: "Ha un legame più con gli elementi o con gli animali?",
+    text: "Il tuo personaggio ha un legame più forte con gli elementi o con gli animali?",
     options: {
       end25: "Elementi",
       end26: "Animali",
     },
   },
   "18": {
-    text: "Si concentra su credo, studi o poteri?",
+    text: "Il tuo personaggio si concentra maggiormente sul suo credo, sui suoi studi o sul suo potere?",
     options: {
       end27: "Credo",
       end28: "Studi",
