@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Howl } from 'howler'; // Import Howl
+import { Howl } from 'howler';
 
 type NodeID = string;
 
@@ -27,7 +27,7 @@ const decisionTree: DecisionTree = {
       "3": "Un mix dei due",
     },
   },
-  // Path 1 - Magic
+
   "1": {
     text: "Il tuo personaggio ha dedicato tutta la sua vita a questa magia o è qualcosa che gli viene più naturale?",
     options: {
@@ -53,7 +53,14 @@ const decisionTree: DecisionTree = {
     text: "Il tuo personaggio preferisce essere il più versatile possibile o concentrarsi sugli incantesimi più potenti?",
     options: {
       end3: "Versatile",
-      end4: "Incantesimi più potenti",
+      "60": "Incantesimi più potenti",
+    },
+  },
+  "60": {
+    text: "Il tuo personaggio è più interessato alla magia pura o più agli elementi naturali?",
+    options: {
+      end4: "Magia pura",
+      end31: "Elementi naturali",
     },
   },
   "5": {
@@ -78,7 +85,6 @@ const decisionTree: DecisionTree = {
     },
   },
 
-  // Path 2 - No Magic
   "2": {
     text: "Che tipo di armi utilizza il tuo personaggio? A lungo raggio? Combattimento ravvicinato? O preferisce non usare armi?",
     options: {
@@ -144,6 +150,7 @@ const decisionTree: DecisionTree = {
       end17: "Sottile e preciso",
     },
   },
+
   "10": {
     text: "Il tuo personaggio usa arti marziali o mezzi ferali?",
     options: {
@@ -152,7 +159,6 @@ const decisionTree: DecisionTree = {
     },
   },
 
-  // Path 3 - Mix
   "3": {
     text: "Il tuo personaggio combatte più con la magia o più in altri modi?",
     options: {
@@ -197,11 +203,25 @@ const decisionTree: DecisionTree = {
     },
   },
   "18": {
-    text: "Il tuo personaggio si concentra maggiormente sul suo credo, sui suoi studi o sul suo potere?",
+    text: "Il tuo personaggio si concentra maggiormente sul suo credo, sul suo potere o sui suoi studi?",
     options: {
-      end27: "Credo",
-      end28: "Studi",
-      end29: "Poteri",
+      "50": "Il suo credo",
+      end28: "I suoi studi",
+      "61": "Il suo potere",
+    },
+  },
+  "50": {
+    text: "Il credo del tuo personaggio viene da una divinità esterna o da una spiritualità interna?",
+    options: {
+      end27: "Divinità esterna",
+      end30: "Spiritualità interna",
+    },
+  },
+  "61": {
+    text: "Il tuo personaggio vuole specializzarsi più nei suoi poteri, o più nelle sue tecniche di combattimento?",
+    options: {
+      end32: "Poteri",
+      end29: "Tecniche di combattimento",
     },
   },
 
@@ -235,6 +255,9 @@ const decisionTree: DecisionTree = {
   end27: { text: "Paladino", description: "Guerriero sacro, incarna giustizia e bontà con i suoi poteri divini." },
   end28: { text: "Duskblade", description: "Combina incantesimi arcani e attacchi fisici in un'unica forma di combattimento." },
   end29: { text: "Guerriero psionico", description: "Usa la forza della sua mente per potenziare i propri attacchi fisici e dominare i suoi avversari." },
+  end30: { text: "Soulborn", description: "Guerriero che usa il proprio spirito per potenziare sé e i propri alleati in combattimento." },
+  end31: { text: "Wu Jen", description: "Un misterioso arcanista i cui poteri controllano gli spiriti, la natura e gli elementi." },
+  end32: { text: "Ardent", description: "Un guerriero dai vasti poteri psionici, che usa per risultare vittorioso in ogni possibile situazione." }
 };
 
 const buttonStyle: React.CSSProperties = {
