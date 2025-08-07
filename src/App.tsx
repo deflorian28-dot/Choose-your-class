@@ -20,7 +20,7 @@ type DecisionTree = {
 
 const decisionTree: DecisionTree = {
   start: {
-    text: "Vorresti che il tuo personaggio lanciasse incantesimi, combattesse senza incantesimi o un mix delle due?",
+    text: "Vorresti che il tuo personaggio lanciasse incantesimi, combattesse senza incantesimi o un mix dei due?",
     options: {
       "1": "Lancia incantesimi",
       "2": "Combatte senza incantesimi",
@@ -38,8 +38,8 @@ const decisionTree: DecisionTree = {
   "4": {
     text: "Il tuo personaggio si concentra di più sul suo credo o sui suoi studi?",
     options: {
-      "6": "Credo",
-      "7": "Studi",
+      "6": "Il suo credo",
+      "7": "I suoi studi",
     },
   },
   "6": {
@@ -52,7 +52,7 @@ const decisionTree: DecisionTree = {
   "7": {
     text: "Il tuo personaggio preferisce essere il più versatile possibile o concentrarsi sugli incantesimi più potenti?",
     options: {
-      end3: "Versatile",
+      "62": "Versatile",
       "60": "Incantesimi più potenti",
     },
   },
@@ -61,6 +61,13 @@ const decisionTree: DecisionTree = {
     options: {
       end4: "Magia pura",
       end31: "Elementi naturali",
+    },
+  },
+  "62": {
+    text: "Il tuo personaggio prende i suoi poteri studiando meticolosamente pergamene e libri, o assorbendoli dalla mente di amici e nemici?",
+    options: {
+      end3: "Da pergamene e libri",
+      end33: "Dalle menti altrui",
     },
   },
   "5": {
@@ -144,7 +151,7 @@ const decisionTree: DecisionTree = {
     },
   },
   "14": {
-    text: "Il tuo personaggio combattime con forza bruta o in modo più sottile e preciso?",
+    text: "Il tuo personaggio combatte con forza bruta o in modo più sottile e preciso?",
     options: {
       end16: "Forza bruta",
       end17: "Sottile e preciso",
@@ -203,11 +210,11 @@ const decisionTree: DecisionTree = {
     },
   },
   "18": {
-    text: "Il tuo personaggio si concentra maggiormente sul suo credo, sul suo potere o sui suoi studi?",
+    text: "Il tuo personaggio si concentra maggiormente sul suo credo, sui suoi studi o sul suo potere?",
     options: {
-      "50": "Il suo credo",
-      end28: "I suoi studi",
-      "61": "Il suo potere",
+      "50": "Credo",
+      "51": "Studi",
+      "61": "Poteri",
     },
   },
   "50": {
@@ -215,6 +222,13 @@ const decisionTree: DecisionTree = {
     options: {
       end27: "Divinità esterna",
       end30: "Spiritualità interna",
+    },
+  },
+  "51": {
+    text: "Il tuo personaggio preferisce aumentare la potenza dei suoi colpi, o indebolire gli avversari prima di sconfiggerli?",
+    options: {
+      end28: "Aumentare il potere",
+      end34: "Indebolire i nemici",
     },
   },
   "61": {
@@ -257,7 +271,9 @@ const decisionTree: DecisionTree = {
   end29: { text: "Guerriero psionico", description: "Usa la forza della sua mente per potenziare i propri attacchi fisici e dominare i suoi avversari." },
   end30: { text: "Soulborn", description: "Guerriero che usa il proprio spirito per potenziare sé e i propri alleati in combattimento." },
   end31: { text: "Wu Jen", description: "Un misterioso arcanista i cui poteri controllano gli spiriti, la natura e gli elementi." },
-  end32: { text: "Ardent", description: "Un guerriero dai vasti poteri psionici, che usa per risultare vittorioso in ogni possibile situazione." }
+  end32: { text: "Ardent", description: "Un guerriero dai vasti poteri psionici, che usa per risultare vittorioso in ogni possibile situazione." },
+  end33: { text: "Erudito", description: "Un maestro psionico che estrae la conoscenza dalla mente dei suoi nemici e dai loro tesori, trasformandola in potere." },
+  end34: { text: "Lama iettatrice", description: "Usa la sua magia per maledire i suoi bersagli e le sue armi per ferirli." }
 };
 
 const buttonStyle: React.CSSProperties = {
